@@ -23,9 +23,13 @@ app.use((req, res, next)=>{
     fs.appendFile('server.log', log);
     next();
 });
+
+/*
 app.use((req, res, next)=>{
     res.render('maintenance');
 });
+*/
+
 app.use('/static', express.static(__dirname+ '/public'));
 
 app.get('/', (req, res)=>{
