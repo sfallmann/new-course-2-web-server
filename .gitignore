@@ -1,0 +1,4 @@
+# installed node modules
+node_modules/
+# log file
+server.log 
