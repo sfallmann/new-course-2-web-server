@@ -13,6 +13,7 @@ hbs.registerHelper('uppercase', function(text) {
     return text.toUpperCase();
 });
 
+
 app.set('view engine', 'hbs');
 
 app.use((req, res, next)=>{
@@ -34,23 +35,29 @@ app.use('/static', express.static(__dirname+ '/public'));
 
 app.get('/', (req, res)=>{
     res.render('home',{
-        title: 'Home Page',
-        name: 'Sean',
-        likes: [
-            'guitar',
-            'nodejs',
-            'reading'
-        ]
+        page: {
+            title: 'Home Page',
+            text: 'This is a test site for learning Node.js and Express.',
+        }
     });
 });
 
 app.get('/about', (req, res)=>{
 
-    res.render('about', {
+    res.render('page', {
         page: {
             title: 'About Page',
-            text: 'Something real will go here',
-            year:  new Date().getFullYear()
+            text: 'This is a page where I will tell you - more about - me.',
+        }
+    });
+});
+
+app.get('/portfolio', (req, res)=>{
+
+    res.render('page', {
+        page: {
+            title: 'Portfolio Page',
+            text: 'Information on projects will go here.',
         }
     });
 });
